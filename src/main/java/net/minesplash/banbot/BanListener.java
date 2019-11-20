@@ -36,6 +36,8 @@ public class BanListener implements Listener {
 
     @EventHandler
     public void onIPUnban(IpUnbanEvent e) {
+        if (e.getBan().hasExpired())
+            return;
         String time = toTime(e.getBan().getCreated() ,e.getBan().getExpires());
         BanBot.instance.bot.logAction("IPUnban", null, null,
                 e.getBan().getIp()+"", e.getBan().getActor().getName());
@@ -50,6 +52,8 @@ public class BanListener implements Listener {
 
     @EventHandler
     public void onUnban(PlayerUnbanEvent e) {
+        if (e.getBan().hasExpired())
+            return;
         BanBot.instance.bot.logAction("Unban", null, null,
                 e.getBan().getPlayer().getName(), e.getBan().getActor().getName());
     }
@@ -63,6 +67,8 @@ public class BanListener implements Listener {
 
     @EventHandler
     public void onUnmute(PlayerUnmuteEvent e) {
+        if (e.getMute().hasExpired())
+            return;
         BanBot.instance.bot.logAction("Unmute", null, null,
                 e.getMute().getPlayer().getName(), e.getMute().getActor().getName());
     }
