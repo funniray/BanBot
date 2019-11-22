@@ -6,9 +6,6 @@ public class EmbedAuthor {
     private String url;
     private String icon_url;
 
-
-    public EmbedAuthor(){}
-
     public EmbedAuthor(String name, String url, String icon_url) {
         this.name = name;
         this.url = url;

@@ -1,6 +1,7 @@
 package net.minesplash.banbot;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import net.minesplash.banbot.embed.DiscordEmbed;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -15,17 +16,14 @@ public class WebhookMessage {
     private String content;
     private String username;
     private String avatar_url;
-    private ArrayList<DiscordEmbed> embeds;
-    private static final MediaType JSON = MediaType.get("application/json; charset=utf-8");
-    private OkHttpClient client;
-
-    public WebhookMessage() {
-        this.embeds = new ArrayList<>();
-        this.client = new OkHttpClient();
-    }
+    private ArrayList<DiscordEmbed> embeds = new ArrayList<>();
 
     public void send(String uri) throws IOException {
-        String jsonString = new Gson().toJson(this);
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        String jsonString = gson.toJson(this);
+
+        OkHttpClient client = new OkHttpClient();
+        MediaType JSON = MediaType.get("application/json; charset=utf-8");
 
         RequestBody body = RequestBody.create(JSON, jsonString);
         Request request = new Request.Builder()

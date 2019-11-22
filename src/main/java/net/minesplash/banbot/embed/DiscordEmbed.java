@@ -23,11 +23,11 @@ public class DiscordEmbed {
     private EmbedImage image;
     private EmbedImage thumbnail;
     private EmbedAuthor author;
-    private Collection<EmbedField> fields;
+    private EmbedField[] fields;
 
     public DiscordEmbed(String title, String desc, String url, String timestamp, String color,
                         EmbedFooter footer, EmbedImage image, EmbedImage thumbnail,
-                        EmbedAuthor author, Collection<EmbedField> fields) {
+                        EmbedAuthor author, EmbedField[] fields) {
         this.title = title;
         this.type = "rich";
         this.description = desc;

@@ -31,7 +31,7 @@ public class BanListener implements Listener {
     public void onIPBan(IpBannedEvent e) {
         String time = toTime(e.getBan().getCreated() ,e.getBan().getExpires());
         BanBot.instance.bot.logAction("IPBan", time, e.getBan().getReason(),
-                e.getBan().getIp()+"", e.getBan().getActor().getName());
+                e.getBan().getIp()+"", e.getBan().getActor(), null);
     }
 
     @EventHandler
@@ -40,14 +40,14 @@ public class BanListener implements Listener {
             return;
         String time = toTime(e.getBan().getCreated() ,e.getBan().getExpires());
         BanBot.instance.bot.logAction("IPUnban", null, null,
-                e.getBan().getIp()+"", e.getBan().getActor().getName());
+                e.getBan().getIp()+"", e.getBan().getActor(), null);
     }
 
     @EventHandler
     public void onBan(PlayerBannedEvent e) {
         String time = toTime(e.getBan().getCreated() ,e.getBan().getExpires());
         BanBot.instance.bot.logAction("Ban", time, e.getBan().getReason(),
-                e.getBan().getPlayer().getName(), e.getBan().getActor().getName());
+                e.getBan().getPlayer().getName(), e.getBan().getActor(), e.getBan().getPlayer());
     }
 
     @EventHandler
@@ -55,14 +55,14 @@ public class BanListener implements Listener {
         if (e.getBan().hasExpired())
             return;
         BanBot.instance.bot.logAction("Unban", null, null,
-                e.getBan().getPlayer().getName(), e.getBan().getActor().getName());
+                e.getBan().getPlayer().getName(), e.getBan().getActor(), e.getBan().getPlayer());
     }
 
     @EventHandler
     public void onMute(PlayerMutedEvent e) {
         String time = toTime(e.getMute().getCreated() ,e.getMute().getExpires());
         BanBot.instance.bot.logAction("Mute", time, e.getMute().getReason(),
-                e.getMute().getPlayer().getName(), e.getMute().getActor().getName());
+                e.getMute().getPlayer().getName(), e.getMute().getActor(), e.getMute().getPlayer());
     }
 
     @EventHandler
@@ -70,13 +70,13 @@ public class BanListener implements Listener {
         if (e.getMute().hasExpired())
             return;
         BanBot.instance.bot.logAction("Unmute", null, null,
-                e.getMute().getPlayer().getName(), e.getMute().getActor().getName());
+                e.getMute().getPlayer().getName(), e.getMute().getActor(), e.getMute().getPlayer());
     }
 
     @EventHandler
     public void onWarn(PlayerWarnedEvent e) {
         String time = toTime(e.getWarning().getCreated() ,e.getWarning().getExpires());
         BanBot.instance.bot.logAction("Warn", time, e.getWarning().getReason(),
-                e.getWarning().getPlayer().getName(), e.getWarning().getActor().getName());
+                e.getWarning().getPlayer().getName(), e.getWarning().getActor(), e.getWarning().getPlayer());
     }
 }

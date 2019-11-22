@@ -25,7 +25,7 @@ public class EmbedBuilder {
 
     public DiscordEmbed build() {
         return new DiscordEmbed(this.title,this.description,this.url,this.timestamp,
-                this.color,this.footer,this.image,this.thumbnail,this.author,this.fields);
+                this.color,this.footer,this.image,this.thumbnail,this.author, this.fields.toArray(new EmbedField[0]));
     }
 
     public EmbedBuilder setTitle(String title) {
@@ -65,8 +65,18 @@ public class EmbedBuilder {
         return this;
     }
 
+    public EmbedBuilder setImage(String url) {
+        this.image = new EmbedImage(url);
+        return this;
+    }
+
     public EmbedBuilder setThumbnail(String url, int height, int width) {
         this.thumbnail = new EmbedImage(url,height,width);
+        return this;
+    }
+
+    public EmbedBuilder setThumbnail(String url) {
+        this.thumbnail = new EmbedImage(url);
         return this;
     }
 
