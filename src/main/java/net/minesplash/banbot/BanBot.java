@@ -5,7 +5,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 public final class BanBot extends JavaPlugin {
 
     public static BanBot instance;
-    public DiscordBot bot;
+    public DiscordHook bot;
 
     @Override
     public void onEnable() {
@@ -14,7 +14,7 @@ public final class BanBot extends JavaPlugin {
         saveDefaultConfig();
 
         getServer().getScheduler().runTaskAsynchronously(this, ()->{
-            this.bot = new DiscordBot(getConfig().getString("discord-token"),getConfig().getString("discord-channel"));
+            this.bot = new DiscordHook(getConfig().getString("discord-token"));
             getServer().getPluginManager().registerEvents(new BanListener(), this);
         });
     }
@@ -22,6 +22,5 @@ public final class BanBot extends JavaPlugin {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
-        this.bot.disconnect();
     }
 }
