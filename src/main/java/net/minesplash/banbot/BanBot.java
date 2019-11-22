@@ -14,7 +14,7 @@ public final class BanBot extends JavaPlugin {
         saveDefaultConfig();
 
         getServer().getScheduler().runTaskAsynchronously(this, ()->{
-            this.bot = new DiscordHook(getConfig().getString("discord-token"));
+            this.bot = new DiscordHook(getConfig().getString("hook-url"));
             getServer().getPluginManager().registerEvents(new BanListener(), this);
         });
     }

@@ -1,2 +1,1 @@
-discord-token: api-key-here
-discord-channel: '2384234809234809'
+hook-url: 'https://discordapp.com/api/webhooks/webhookid/webhookid'

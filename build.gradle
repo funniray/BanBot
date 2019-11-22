@@ -31,14 +31,14 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     compile "com.destroystokyo.paper:paper-api:${minecraftVersion}"
     compile "me.confuser:BanManager:${banManagerVersion}"
-    compile "com.squareup.okhttp3:okhttp:3.13.0"
-    compile "com.squareup.okio:okio:1.17.2"
+    compile "com.squareup.okhttp3:okhttp:${okhttpVersion}"
+    compile "com.squareup.okio:okio:${okioVersion}"
 }
 
 shadowJar {
     dependencies {
-        include(dependency("com.squareup.okhttp3:okhttp:3.13.0"))
-        include(dependency("com.squareup.okio:okio:1.17.2"))
+        include(dependency("com.squareup.okhttp3:okhttp:${okhttpVersion}"))
+        include(dependency("com.squareup.okio:okio:${okioVersion}"))
     }
 }
 
