@@ -1,4 +1,4 @@
-package net.minesplash.banbot.embed;
+package com.funniray.banbot.embed;
 
 public class EmbedFooter {
 

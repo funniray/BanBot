@@ -1,8 +1,8 @@
-package net.minesplash.banbot;
+package com.funniray.banbot;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import net.minesplash.banbot.embed.DiscordEmbed;
+import com.funniray.banbot.embed.DiscordEmbed;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;

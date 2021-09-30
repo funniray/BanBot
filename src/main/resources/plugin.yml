@@ -1,5 +1,5 @@
 name: Banbot
 version: @version@
-main: net.minesplash.banbot.BanBot
+main: com.funniray.banbot.BanBot
 authors: [Funniray]
 description: discord bot for bans

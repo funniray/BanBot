@@ -12,25 +12,22 @@ targetCompatibility = 1.8
 
 repositories {
     mavenCentral()
+    mavenLocal()
     jcenter()
     maven {
-        name = 'destroystokyo-repo'
-        url = 'https://repo.destroystokyo.com/repository/maven-public/'
+        name = 'waterdog-repo'
+        url = 'https://repo.waterdog.dev/artifactory/main'
     }
     maven {
         name = 'sonatype'
         url = 'https://oss.sonatype.org/content/groups/public/'
     }
-    maven {
-        name = 'confuser-repo'
-        url = 'https://ci.frostcast.net/plugin/repository/everything/'
-    }
 }
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
-    compile "com.destroystokyo.paper:paper-api:${minecraftVersion}"
-    compile "me.confuser:BanManager:${banManagerVersion}"
+    compile "dev.waterdog.waterdogpe:waterdog:${waterdogVersion}"
+    compile "com.funniray:litebans-waterdodge:${litebansVersion}"
     compile "com.squareup.okhttp3:okhttp:${okhttpVersion}"
     compile "com.squareup.okio:okio:${okioVersion}"
 }
